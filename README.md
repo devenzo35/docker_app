@@ -15,8 +15,7 @@ README.md: este archivo, con notas y comandos útiles que fui recopilando.
 ## 🛠️ Comandos útiles de Docker
 Aca algunos comandos que fui utilizando:
 
-'''
-
+```
 docker run imagen               # Ejecuta un contenedor desde una imagen
 docker run -d imagen            # Ejecuta en segundo plano
 docker run -p 5000:5000 imagen  # Mapea puertos (host:contenedor)
@@ -32,26 +31,26 @@ docker exec -it cont bash       # Accede al contenedor con bash
 docker logs contenedor          # Muestra los logs del contenedor
 docker build -t nombre .        # Crea una imagen desde un Dockerfile
 docker-compose up -d            # Levanta servicios definidos en docker-compose
+```
 
-'''
 
 ## 🚀 ¿Cómo probar la aplicación?
 Clona el repositorio:
 
-'''
+```
 git clone https://github.com/devenzo35/docker_app.git
 cd docker_app
-'''
+```
 Construye la imagen:
 
-'''
+```
 docker build -t mi_app .
-'''
+```
 Ejecuta el contenedor:
 
-'''
+```
 docker run -p 5000:5000 mi_app
-'''
+```
 
 Abre tu navegador en http://localhost:5000 para ver la aplicación en funcionamiento.
 
