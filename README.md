@@ -1,54 +1,64 @@
-# docker_app
+## 🐳 docker_app: Aprendiendo Docker desde Cero
+Este proyecto es mi espacio de práctica para aprender Docker desde lo más básico. Incluye una pequeña aplicación en Flask, un Dockerfile, un docker-compose.yml y un resumen de los comandos más utilizados que fui recopilando mientras exploraba.
 
+## 📦 ¿Qué contiene este repositorio?
+app.py: una aplicación sencilla en Flask para probar la creación de imágenes y contenedores.
 
+Dockerfile: define cómo construir la imagen de la aplicación.
 
-## Docker Commands
+docker-compose.yml: facilita el levantamiento de servicios con un solo comando.
 
-```bash
-docker run imagen         # Runs a container from an image
-docker run -d imagen      # Runs a container from an image in the background
-docker run -p 5000:5000   # Synchronizes Docker server with local
-docker ps                 # Lists active containers
-docker ps -a              # Lists all containers
-docker stop contenedor    # Stops a container
-docker start contenedor   # Starts a stopped container
-docker rm contenedor      # Removes a container
-docker images             # Lists downloaded images
-docker rmi imagen         # Removes an image
-docker pull imagen        # Downloads an image from Docker Hub
-docker exec -it cont bash # Accesses the container with bash
-docker logs contenedor    # Displays container logs
-docker build -t nombre .  # Creates an image from a Dockerfile
-docker-compose up -d      # Starts services defined in docker-compose
-docker-compose down       # Stops and removes the services
+requirements.txt: lista de dependencias necesarias para la aplicación.
 
-# SHARING IMAGES ON DOCKERHUB
+README.md: este archivo, con notas y comandos útiles que fui recopilando.
 
-docker login
-docker tag [image_name] [username/image_name]
-docker push image_name
+## 🛠️ Comandos útiles de Docker
+Aca algunos comandos que fui utilizando:
 
-# DOCKER NETWORK
+'''
 
-docker network create [network_name]
-docker run -d \
---network docker_app --network-alias mysql \
--v postgreSQL_data/var/lib/mysql  \ 'we load the DB volume here'
--e POSTGRES_ROOT_PASSWORD=secret \ 'this image provides these keys for connection'
--e POSTGRES_DATABASE=db_name \
-mysql:5.7
+docker run imagen               # Ejecuta un contenedor desde una imagen
+docker run -d imagen            # Ejecuta en segundo plano
+docker run -p 5000:5000 imagen  # Mapea puertos (host:contenedor)
+docker ps                       # Lista contenedores activos
+docker ps -a                    # Lista todos los contenedores
+docker stop contenedor          # Detiene un contenedor
+docker start contenedor         # Inicia un contenedor detenido
+docker rm contenedor            # Elimina un contenedor
+docker images                   # Lista imágenes locales
+docker rmi imagen               # Elimina una imagen
+docker pull imagen              # Descarga una imagen desde Docker Hub
+docker exec -it cont bash       # Accede al contenedor con bash
+docker logs contenedor          # Muestra los logs del contenedor
+docker build -t nombre .        # Crea una imagen desde un Dockerfile
+docker-compose up -d            # Levanta servicios definidos en docker-compose
 
-# NOW THAT VERSION OF MYSQL (mysql:5.7) IS IN THAT NETWORK (docker_app) AND WE CAN ADD MORE IMAGES TO THE SAME NETWORK TO INTERACT WITH EACH OTHER
+'''
 
-# DOCKER-COMPOSE (we do the above but easier and safer)
-# - create docker-compose.yaml
-# - configure it
+## 🚀 ¿Cómo probar la aplicación?
+Clona el repositorio:
 
-# Run docker-compose.yaml file
+'''
+git clone https://github.com/devenzo35/docker_app.git
+cd docker_app
+'''
+Construye la imagen:
 
-docker compose up -d 
+'''
+docker build -t mi_app .
+'''
+Ejecuta el contenedor:
 
-# Shutdown the docker-compose network
+'''
+docker run -p 5000:5000 mi_app
+'''
 
-docker compose down
-```
+Abre tu navegador en http://localhost:5000 para ver la aplicación en funcionamiento.
+
+📬 Contacto
+Si tenés dudas o querés compartir ideas sobre Docker o desarrollo en general:
+
+GitHub: @devenzo35
+
+Email: enzocuellar12@gmail.com
+
